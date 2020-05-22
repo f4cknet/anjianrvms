@@ -8,12 +8,13 @@ class Systemvuln(models.Model):
 	vuln_detail = models.TextField()
 	vuln_level = models.IntegerField('漏洞等级',choices=((1,"低危"),(2,"中危"),(3,"高危"),(4,"严重")))
 	vuln_process = models.IntegerField('处理进度',default=1,choices=((1,"未处理"),(2,"处理中"),(3,"处理完成")))
-	result = models.IntegerField('处理结果',choices=((1,"已修复"),(2,"已忽略"),(3,"已关机")))
+	# result = models.IntegerField('处理结果',choices=((1,"已修复"),(2,"已忽略")),null=True,blank=True)
+	result = models.IntegerField('处理结果',choices=((1,"已修复"),(2,"已忽略"),(3,"已关机")),null=True,blank=True)
 	vuln_handler = models.CharField('漏洞经办人',max_length=15,null=True,blank=True)
 	handler_phone = models.CharField('经办人电话',max_length=11,null=True,blank=True)
 	#pub_date = models.DateTimeField(u'入库时间',editable = True)
 	detect_time = models.DateTimeField('发现时间')
-	done_time = models.DateTimeField('处理完成时间')
+	done_time = models.DateTimeField('处理完成时间',null=True,blank=True)
 
 	class Meta:
 		verbose_name = "系统漏洞"
@@ -34,7 +35,7 @@ class Appvuln(models.Model):
 	handler_phone = models.CharField('经办人电话',max_length=11,null=True,blank=True)
 	#pub_date = models.DateTimeField(u'入库时间',editable = True)
 	detect_time = models.DateTimeField('发现时间')
-	done_time = models.DateTimeField('处理完成时间')
+	done_time = models.DateTimeField('处理完成时间',null=True,blank=True)
 
 	class Meta:
 		verbose_name = "应用程序漏洞"
