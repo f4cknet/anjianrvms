@@ -2,7 +2,7 @@ cached-property==1.5.1
 certifi==2020.4.5.1
 chardet==3.0.4
 click==7.1.2
-Django==2.2.2
+Django==2.2.10
 django-jet==1.0.8
 Flask==1.1.1
 idna==2.8
